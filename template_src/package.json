@@ -1,0 +1,13 @@
+{
+  "name": "phonegap-magicavoxel-aframe-template",
+  "version": "0.0.1",
+  "description": "A PhoneGap project that allows you to get up to speed with MagicaVoxel and A-Frame.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova:template"
+  ],
+  "license": "ISC"
+}
