@@ -1,6 +1,6 @@
 {
   "name": "phonegap-magicavoxel-aframe-template",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A PhoneGap project that allows you to get up to speed with MagicaVoxel and A-Frame.",
   "main": "index.js",
   "repository": {
