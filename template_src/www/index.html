@@ -19,26 +19,34 @@
 -->
 <html>
     <head>
+        <!-- This csp is due to the cdns we are trying to access for A-Frame -->
         <meta http-equiv="Content-Security-Policy" 
         content="
-          default-src 'self' data: gap: ws: https://ssl.gstatic.com 'unsafe-eval'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://aframe.io https://rawgit.com https://unpkg.com https://www.google-analytics.com https://ajax.googleapis.com https://ucarecdn.com; 
-          style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com http://fonts.googleapis.com; 
-          media-src 'self' data:; 
-          img-src 'self' data: https://aframe.io https://www.google-analytics.com; 
+          default-src self data: gap: ws: https://ssl.gstatic.com unsafe-eval; script-src self unsafe-eval unsafe-inline https://aframe.io https://rawgit.com https://unpkg.com https://www.google-analytics.com https://ajax.googleapis.com https://ucarecdn.com; 
+          style-src self unsafe-inline https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com http://fonts.googleapis.com; 
+          media-src self data:; 
+          img-src self data: https://aframe.io https://www.google-analytics.com; 
           font-src https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com http://fonts.gstatic.com">
+        <!-- Include the scripts that power A-Frame -->
         <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <!-- Helper loader script from baked .ply models --> 
         <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+        <!-- Preset environment -->
         <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
         <title>My PhoneGap and A-Frame Scene!</title>
     </head>
     <body>
+
         <a-scene inspector>
           <a-assets>
+            <!-- Replace the path to your own models here! -->
             <a-asset-item id="myModelObj" src="models/vans.obj"></a-asset-item>
             <a-asset-item id="myModelMtl" src="models/vans.mtl"></a-asset-item>
           </a-assets>
+
           <a-entity camera position="0 10 25" look-controls></a-entity>
 
+          <!-- Try changing the preset environment to: none, default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, arches, threetowers, poison, tron, japan, dream, volcano, starry, osiris-->
           <a-entity environment="preset: tron;">
             <a-animation  attribute="rotation"
                   dur="10000"
@@ -47,7 +55,9 @@
                   repeat="indefinite"></a-animation>
 
               <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="0 10 10"></a-entity>
+
               <a-entity obj-model="obj: #myModelObj; mtl: #myModelMtl" position="0 0 0" scale="0.3 0.3 0.3"></a-entity>
+
           </a-entity>
 
         </a-scene>
